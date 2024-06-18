@@ -1,0 +1,50 @@
+.cocktail-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.cocktail-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.cocktail-details {
+  margin-top: 20px;
+}
+
+.cocktail-ingredients {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cocktail-ingredients li {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.cocktail-instructions {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.suggestions-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: white;
+  border: 1px solid #ddd;
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  z-index: 1;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
