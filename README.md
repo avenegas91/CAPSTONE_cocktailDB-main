@@ -13,10 +13,12 @@ To deploy on local machine:
 Create database by seeding the data.sql file.
 
 BACKEND (port 3000):
+
 cd backend
 nodemon index.js
 
 FRONTEND (port 3001):
+
 cd frontend
 npm start
 
