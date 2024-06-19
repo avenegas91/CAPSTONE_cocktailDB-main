@@ -1,0 +1,58 @@
+.cocktail-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .cocktail-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .cocktail-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .cocktail-subtitle {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .cocktail-ingredients {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cocktail-ingredients li {
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  
+  .cocktail-instructions {
+    text-align: left;
+    margin: 10px 0;
+  }
+  
+  .cocktail-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .cocktail-button:hover {
+    background-color: #0056b3;
+  }
+  

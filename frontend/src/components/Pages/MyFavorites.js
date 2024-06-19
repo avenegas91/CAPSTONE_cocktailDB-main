@@ -3,6 +3,7 @@ import axios from 'axios';
 import axiosCocktailDB from '../../utils/axiosCocktailDB';
 import './PageStyles.css';
 import { AuthContext } from '../../context/AuthContext';
+import Cocktail from '../Cocktail';
 
 function MyFavorites() {
   const [favorites, setFavorites] = useState([]);
@@ -61,25 +62,17 @@ function MyFavorites() {
   return (
     <div className="cocktail-container">
       <h1>My Favorites</h1>
-      {cocktails.map(cocktail => (
-        <div key={cocktail.idDrink} className="cocktail-details">
-          <h2>{cocktail.strDrink}</h2>
-          <img className="cocktail-image" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-          <h3>Ingredients</h3>
-          <ul className="cocktail-ingredients">
-            {Object.keys(cocktail)
-              .filter((key) => key.startsWith('strIngredient') && cocktail[key])
-              .map((key) => (
-                <li key={key}>
-                  {cocktail[key]} - {cocktail[`strMeasure${key.replace('strIngredient', '')}`]}
-                </li>
-              ))}
-          </ul>
-          <h3>Instructions</h3>
-          <p className="cocktail-instructions">{cocktail.strInstructions}</p>
-          {isAuthenticated && <button onClick={() => removeFromFavorites(cocktail.idDrink)}>Remove from Favorites</button>}
-        </div>
-      ))}
+      <div className="cocktail-grid">
+        {cocktails.map(cocktail => (
+          <div key={cocktail.idDrink}>
+            <Cocktail 
+              cocktail={cocktail} 
+              isAuthenticated={isAuthenticated}
+            />
+            <button className="cocktail-button" onClick={() => removeFromFavorites(cocktail.idDrink)}>Remove from Favorites</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

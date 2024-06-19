@@ -3,6 +3,18 @@
   text-align: center;
 }
 
+.cocktail-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cocktail-grid > div {
+  flex: 1 1 30%;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
 .cocktail-image {
   width: 100%;
   max-width: 400px;
