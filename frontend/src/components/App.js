@@ -28,15 +28,13 @@ function App() {
             <Route path="/my-favorites" element={<ProtectedRoute><MyFavorites /></ProtectedRoute>} />
             <Route path="/about-us" element={<ProtectedRoute><AboutUs /></ProtectedRoute>} />
           </Routes>
-          <AuthConsumer>
+          <AuthContext.Consumer>
             {({ isAuthenticated }) => isAuthenticated && <Navbar />}
-          </AuthConsumer>
+          </AuthContext.Consumer>
         </ErrorBoundary>
       </Router>
     </AuthProvider>
   );
 }
-
-const AuthConsumer = AuthContext.Consumer;
 
 export default App;
