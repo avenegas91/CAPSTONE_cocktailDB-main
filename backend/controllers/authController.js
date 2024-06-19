@@ -4,10 +4,10 @@ const { secretKey } = require('../config');
 const { createUser, findUserByUsername } = require('../models/userModel');
 
 const register = async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, birthdate } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   try {
-    const result = await createUser(username, hashedPassword);
+    const result = await createUser(username, hashedPassword, birthdate);
     res.json({ userId: result.rows[0].id });
   } catch (error) {
     res.status(500).json({ error: 'User registration failed' });

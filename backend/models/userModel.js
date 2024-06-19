@@ -1,7 +1,7 @@
 const { pool } = require('../config');
 
-const createUser = async (username, hashedPassword) => {
-  return pool.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id', [username, hashedPassword]);
+const createUser = async (username, hashedPassword, birthdate) => {
+  return pool.query('INSERT INTO users (username, password, birthdate) VALUES ($1, $2, $3) RETURNING id', [username, hashedPassword, birthdate]);
 };
 
 const findUserByUsername = async (username) => {
@@ -9,3 +9,4 @@ const findUserByUsername = async (username) => {
 };
 
 module.exports = { createUser, findUserByUsername };
+
