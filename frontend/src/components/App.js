@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Welcome from './Pages/Welcome';
 import Navbar from './Layout/Navbar';
 import Home from './Pages/Home';
 import SearchCocktail from './Pages/SearchCocktail';
@@ -9,7 +10,7 @@ import AboutUs from './Pages/AboutUs';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
 import ProtectedRoute from './ProtectedRoute';
-import { AuthProvider } from '../context/AuthContext';
+import { AuthProvider, AuthContext } from '../context/AuthContext';
 import ErrorBoundary from './ErrorBoundary';
 
 function App() {
@@ -17,9 +18,8 @@ function App() {
     <AuthProvider>
       <Router>
         <ErrorBoundary>
-          <Navbar />
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Welcome />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
@@ -28,10 +28,15 @@ function App() {
             <Route path="/my-favorites" element={<ProtectedRoute><MyFavorites /></ProtectedRoute>} />
             <Route path="/about-us" element={<ProtectedRoute><AboutUs /></ProtectedRoute>} />
           </Routes>
+          <AuthConsumer>
+            {({ isAuthenticated }) => isAuthenticated && <Navbar />}
+          </AuthConsumer>
         </ErrorBoundary>
       </Router>
     </AuthProvider>
   );
 }
+
+const AuthConsumer = AuthContext.Consumer;
 
 export default App;
