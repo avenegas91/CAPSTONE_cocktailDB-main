@@ -47,7 +47,7 @@ function Register() {
         <DatePicker 
           selected={birthdate} 
           onChange={(date) => setBirthdate(date)} 
-          dateFormat="yyyy/MM/dd"
+          dateFormat="MM/dd/yyyy"
           placeholderText="Select your birthdate" 
           showYearDropdown
           scrollableYearDropdown
