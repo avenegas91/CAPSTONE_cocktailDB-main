@@ -5,7 +5,7 @@ const Cocktail = ({ cocktail, addToFavorites, isAuthenticated }) => {
   if (!cocktail) return null;
 
   return (
-    <div className="cocktail-card">
+    <div>
       <h2 className="cocktail-title">{cocktail.strDrink}</h2>
       <img className="cocktail-image" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
       <h3 className="cocktail-subtitle">Ingredients</h3>
