@@ -1,6 +1,6 @@
 import React from 'react';
 import WelcomeNavbar from '../Layout/WelcomeNavbar';
-import './PageStyles.css';
+
 
 function Welcome() {
   return (

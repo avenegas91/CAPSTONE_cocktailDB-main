@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { isBefore, subYears } from 'date-fns';
+import './RegisterStyles.css';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -33,29 +34,43 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+    <div className="register-container">
+      <div className="register-card">
+        <h1>Register</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Username:</label>
+            <input 
+              type="text" 
+              value={username} 
+              onChange={(e) => setUsername(e.target.value)} 
+            />
+          </div>
+          <div>
+            <label>Password:</label>
+            <input 
+              type="password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+            />
+          </div>
+          <div>
+            <label>Birthdate:</label>
+            <DatePicker 
+              selected={birthdate} 
+              onChange={(date) => setBirthdate(date)} 
+              dateFormat="MM/dd/yyyy"
+              placeholderText="Select your birthdate" 
+              showYearDropdown
+              scrollableYearDropdown
+              className="react-datepicker-wrapper"
+            />
+          </div>
+          <p>You must be 21 years or older to register.</p>
+          <button type="submit">Register</button>
+        </form>
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </div>
-      <div>
-        <label>Birthdate:</label>
-        <DatePicker 
-          selected={birthdate} 
-          onChange={(date) => setBirthdate(date)} 
-          dateFormat="MM/dd/yyyy"
-          placeholderText="Select your birthdate" 
-          showYearDropdown
-          scrollableYearDropdown
-        />
-      </div>
-      <p>You must be 21 years or older to register.</p>
-      <button type="submit">Register</button>
-    </form>
+    </div>
   );
 }
 
