@@ -1,0 +1,25 @@
+.random-cocktail-container {
+    padding-top: 80px; /* Adjust the padding as needed based on your navbar height */
+    text-align: center;
+  }
+  
+  .random-cocktail-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .random-cocktail-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+  }
+  
+  .random-cocktail-button:hover {
+    background-color: #0056b3;
+  }
+  

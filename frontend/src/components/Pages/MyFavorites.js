@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import axiosCocktailDB from '../../utils/axiosCocktailDB';
-import './PageStyles.css';
+import './MyFavoritesStyles.css';
 import { AuthContext } from '../../context/AuthContext';
 import Cocktail from '../Cocktail';
+import '../CocktailStyles.css'; // Assuming this file contains the cocktail container styles
 
 function MyFavorites() {
   const [favorites, setFavorites] = useState([]);
@@ -60,16 +61,16 @@ function MyFavorites() {
   };
 
   return (
-    <div className="cocktail-container">
-      <h1>My Favorites</h1>
-      <div className="cocktail-grid">
+    <div className="favorites-container">
+      <h1 className="favorites-title">My Favorites</h1>
+      <div className="favorites-grid">
         {cocktails.map(cocktail => (
-          <div key={cocktail.idDrink}>
+          <div key={cocktail.idDrink} className="cocktail-card">
             <Cocktail 
               cocktail={cocktail} 
               isAuthenticated={isAuthenticated}
             />
-            <button className="cocktail-button" onClick={() => removeFromFavorites(cocktail.idDrink)}>Remove from Favorites</button>
+            <button className="favorites-button" onClick={() => removeFromFavorites(cocktail.idDrink)}>Remove from Favorites</button>
           </div>
         ))}
       </div>

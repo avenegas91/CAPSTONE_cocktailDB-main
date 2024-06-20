@@ -1,0 +1,55 @@
+.search-cocktail-container {
+    padding-top: 80px; /* Adjust the padding as needed based on your navbar height */
+    text-align: center;
+  }
+  
+  .search-cocktail-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .search-cocktail-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .search-suggestions-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background: white;
+    border: 1px solid #ddd;
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    z-index: 1;
+  }
+  
+  .search-suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .search-suggestion-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .search-cocktail-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+  }
+  
+  .search-cocktail-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 import axiosCocktailDB from '../../utils/axiosCocktailDB';
 import axios from 'axios';
-import './PageStyles.css';
+import './SearchCocktailStyles.css';
 import { AuthContext } from '../../context/AuthContext';
 import Cocktail from '../Cocktail';
+import '../CocktailStyles.css';
 
 function SearchCocktail() {
   const [name, setName] = useState('');
@@ -11,9 +12,9 @@ function SearchCocktail() {
   const [suggestions, setSuggestions] = useState([]);
   const { isAuthenticated } = useContext(AuthContext);
 
-  const handleSearch = async () => {
+  const handleSearch = async (cocktailName) => {
     try {
-      const response = await axiosCocktailDB.get(`/search.php?s=${name}`);
+      const response = await axiosCocktailDB.get(`/search.php?s=${cocktailName}`);
       setCocktail(response.data.drinks ? response.data.drinks[0] : null);
       setSuggestions([]);  // Clear suggestions after search
     } catch (error) {
@@ -43,7 +44,7 @@ function SearchCocktail() {
   const handleSuggestionClick = (suggestion) => {
     setName(suggestion.strDrink);
     setSuggestions([]);
-    handleSearch();
+    handleSearch(suggestion.strDrink);
   };
 
   const addToFavorites = async () => {
@@ -59,34 +60,37 @@ function SearchCocktail() {
   };
 
   return (
-    <div className="cocktail-container">
-      <h1>Search Cocktail</h1>
+    <div className="search-cocktail-container">
+      <h1 className="search-cocktail-title">Search Cocktail</h1>
       <input 
         type="text" 
         value={name} 
         onChange={handleChange} 
         placeholder="Search for a cocktail..." 
+        className="search-cocktail-input"
       />
       {suggestions.length > 0 && (
-        <ul className="suggestions-list">
+        <ul className="search-suggestions-list">
           {suggestions.map((suggestion) => (
             <li 
               key={suggestion.idDrink} 
               onClick={() => handleSuggestionClick(suggestion)}
-              className="suggestion-item"
+              className="search-suggestion-item"
             >
               {suggestion.strDrink}
             </li>
           ))}
         </ul>
       )}
-      <button onClick={handleSearch}>Search</button>
+      <button className="search-cocktail-button" onClick={() => handleSearch(name)}>Search</button>
       {cocktail && (
-        <Cocktail 
-          cocktail={cocktail} 
-          addToFavorites={addToFavorites}
-          isAuthenticated={isAuthenticated}
-        />
+        <div className="cocktail-card">
+          <Cocktail 
+            cocktail={cocktail} 
+            addToFavorites={addToFavorites}
+            isAuthenticated={isAuthenticated}
+          />
+        </div>
       )}
     </div>
   );

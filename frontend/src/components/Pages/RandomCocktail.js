@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axiosCocktailDB from '../../utils/axiosCocktailDB';
 import axios from 'axios';
-import './PageStyles.css';
+import './RandomCocktailStyles.css';
 import { AuthContext } from '../../context/AuthContext';
 import Cocktail from '../Cocktail';
+import '../CocktailStyles.css'; // Assuming this file contains the cocktail container styles
 
 function RandomCocktail() {
   const [cocktail, setCocktail] = useState(null);
@@ -35,17 +36,17 @@ function RandomCocktail() {
   };
 
   return (
-    <div className="cocktail-container">
-      <h1>Random Cocktail</h1>
+    <div className="random-cocktail-container">
+      <h1 className="random-cocktail-title">Random Cocktail</h1>
       {cocktail && (
-        <>
+        <div className="cocktail-card">
           <Cocktail 
             cocktail={cocktail} 
             addToFavorites={addToFavorites}
             isAuthenticated={isAuthenticated}
           />
-          <button onClick={fetchRandomCocktail}>Generate Another Random Cocktail</button>
-        </>
+          <button className="random-cocktail-button" onClick={fetchRandomCocktail}>Generate Another Random Cocktail</button>
+        </div>
       )}
     </div>
   );
