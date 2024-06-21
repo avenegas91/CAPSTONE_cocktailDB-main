@@ -1,18 +1,16 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { isBefore, subYears } from 'date-fns';
-import './RegisterStyles.css';
+import './LoginRegisterStyles.css';
 
-function Register() {
+function Register({ toggleForm }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [birthdate, setBirthdate] = useState(null);
   const { login } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const is21OrOlder = (date) => {
     return isBefore(date, subYears(new Date(), 21));
@@ -26,16 +24,15 @@ function Register() {
     }
     try {
       const response = await axios.post('http://localhost:3000/auth/register', { username, password, birthdate });
-      login(response.data.token);
-      navigate('/home');
+      login(response.data.token, username);
     } catch (error) {
       alert('Registration failed');
     }
   };
 
   return (
-    <div className="register-container">
-      <div className="register-card">
+    <div className="auth-container">
+      <div className="auth-card">
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
           <div>
@@ -59,7 +56,7 @@ function Register() {
             <DatePicker 
               selected={birthdate} 
               onChange={(date) => setBirthdate(date)} 
-              dateFormat="MM/dd/yyyy"
+              dateFormat="yyyy/MM/dd"
               placeholderText="Select your birthdate" 
               showYearDropdown
               scrollableYearDropdown
@@ -69,6 +66,7 @@ function Register() {
           <p>You must be 21 years or older to register.</p>
           <button type="submit">Register</button>
         </form>
+        <p>Already have an account? <span onClick={toggleForm} className="auth-link">Login</span></p>
       </div>
     </div>
   );

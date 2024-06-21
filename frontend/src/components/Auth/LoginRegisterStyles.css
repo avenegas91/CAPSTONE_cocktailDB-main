@@ -1,0 +1,78 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+  }
+  
+  .auth-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .auth-card h1 {
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  
+  .auth-card p {
+    margin-top: 20px;
+    color: #666666;
+  }
+  
+  .auth-card .auth-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .auth-card .auth-link:hover {
+    text-decoration: underline;
+  }
+  
+  .auth-card label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #666666;
+  }
+  
+  .auth-card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .auth-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+  }
+  
+  .auth-card button:hover {
+    background-color: #0056b3;
+  }
+  
+  .auth-card .react-datepicker-wrapper {
+    width: 100%;
+  }
+  
+  .auth-card .react-datepicker__input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  

@@ -1,29 +1,26 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import './LoginStyles.css';
+import './LoginRegisterStyles.css';
 
-function Login() {
+function Login({ toggleForm }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/auth/login', { username, password });
-      login(response.data.token);
-      navigate('/home');
+      login(response.data.token, username);
     } catch (error) {
       alert('Login failed');
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
+    <div className="auth-container">
+      <div className="auth-card">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
           <div>
@@ -44,6 +41,7 @@ function Login() {
           </div>
           <button type="submit">Login</button>
         </form>
+        <p>Don't have an account? <span onClick={toggleForm} className="auth-link">Register</span></p>
       </div>
     </div>
   );
