@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 import './Home.css';
+import WelcomePage from './WelcomePage';
 
 function Home() {
+  const { isAuthenticated, username } = useContext(AuthContext);
+
   return (
     <div className="home-container">
-      <h1 className="home-title">Welcome to the Cocktail App</h1>
-      <div className="home-content">
-        <p>
-          Discover a variety of cocktails, search for your favorite drinks, and save them to your favorites. Whether you're a cocktail enthusiast or just getting started, our app has something for everyone.
-        </p>
-      </div>
+      {isAuthenticated ? (
+        <>
+          <h1 className="home-title">Welcome to Barkeeps!</h1>
+          <p className="home-description">Discover and save your favorite cocktails.</p>
+          {username && <p className="username-display">Logged in as: {username}</p>}
+        </>
+      ) : (
+        <div>
+          <WelcomePage />
+        </div>
+      )}
     </div>
   );
 }
