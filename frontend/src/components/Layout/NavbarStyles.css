@@ -1,42 +1,30 @@
 .navbar {
   background-color: #333;
-  overflow: hidden;
-  position: fixed; /* Make the navbar fixed at the top */
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Ensure it is above other content */
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
 }
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex; /* Use flexbox for horizontal layout */
-}
-
-.navbar ul li {
-  flex: 1; /* Distribute items equally */
-}
-
-.navbar ul li a,
-.navbar ul li button {
-  display: block;
+.navbar a {
   color: white;
-  text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  padding: 10px;
 }
 
-.navbar ul li a:hover,
-.navbar ul li button:hover {
-  background-color: #111;
+.navbar a:hover {
+  background-color: #555;
 }
 
-.welcome-container {
-  text-align: center;
-  margin-top: 100px; /* Adjust margin to avoid overlap with fixed navbar */
+.navbar button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
 }
 
-.welcome-content {
-  margin-top: 20px;
+.navbar button:hover {
+  background-color: #0056b3;
 }
