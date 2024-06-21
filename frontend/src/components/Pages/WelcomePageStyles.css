@@ -1,0 +1,94 @@
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #aaf0cf, #feb47b);
+    padding: 20px;
+  }
+  
+  .welcome-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .app-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  
+  .app-description {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #666666;
+  }
+  
+  .auth-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  
+  .auth-container p {
+    font-size: 1em;
+    margin-top: 20px;
+    color: #666666;
+  }
+  
+  .auth-container .auth-link {
+    color: #ff7e5f;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .auth-container .auth-link:hover {
+    text-decoration: underline;
+  }
+  
+  .auth-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #666666;
+  }
+  
+  .auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .auth-container button {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+  }
+  
+  .auth-container button:hover {
+    background-color: #feb47b;
+  }
+  
+  .auth-container .react-datepicker-wrapper {
+    width: 100%;
+  }
+  
+  .auth-container .react-datepicker__input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
