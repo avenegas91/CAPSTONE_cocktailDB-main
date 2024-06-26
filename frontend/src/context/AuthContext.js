@@ -6,14 +6,16 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
-  const navigate = useNavigate(); // useNavigate inside Router context
+  const [token, setToken] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const storedToken = localStorage.getItem('token');
     const storedUsername = localStorage.getItem('username');
-    if (token && storedUsername) {
+    if (storedToken && storedUsername) {
       setIsAuthenticated(true);
       setUsername(storedUsername);
+      setToken(storedToken);
     }
   }, []);
 
@@ -22,6 +24,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('username', username);
     setIsAuthenticated(true);
     setUsername(username);
+    setToken(token);  // Set token state
     navigate('/home');  // Redirect to home page after login
   };
 
@@ -30,11 +33,12 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('username');
     setIsAuthenticated(false);
     setUsername('');
+    setToken('');  // Clear token state
     navigate('/');  // Redirect to welcome page after logout
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, username, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, username, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
