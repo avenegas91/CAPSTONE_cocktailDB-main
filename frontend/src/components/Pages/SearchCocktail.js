@@ -4,7 +4,6 @@ import axios from 'axios';
 import './SearchCocktailStyles.css';
 import { AuthContext } from '../../context/AuthContext';
 import Cocktail from '../Cocktail';
-import '../CocktailStyles.css';
 
 function SearchCocktail() {
   const [name, setName] = useState('');
@@ -84,7 +83,7 @@ function SearchCocktail() {
       )}
       <button className="search-cocktail-button" onClick={() => handleSearch(name)}>Search</button>
       {cocktail && (
-        <div className="cocktail-card">
+        <div className="cocktail-display">
           <Cocktail 
             cocktail={cocktail} 
             addToFavorites={addToFavorites}

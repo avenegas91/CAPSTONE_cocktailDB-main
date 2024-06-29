@@ -26,7 +26,11 @@ function Register({ toggleForm }) {
       const response = await axios.post('http://localhost:3000/auth/register', { username, password, birthdate });
       login(response.data.token, username);
     } catch (error) {
-      alert('Registration failed');
+      if (error.response && error.response.data && error.response.data.error === 'Username already exists') {
+        alert('Username already exists');
+      } else {
+        alert('Registration failed');
+      }
     }
   };
 

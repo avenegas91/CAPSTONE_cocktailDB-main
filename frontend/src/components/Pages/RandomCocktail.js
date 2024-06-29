@@ -4,7 +4,6 @@ import axios from 'axios';
 import './RandomCocktailStyles.css';
 import { AuthContext } from '../../context/AuthContext';
 import Cocktail from '../Cocktail';
-import '../CocktailStyles.css'; // Assuming this file contains the cocktail container styles
 
 function RandomCocktail() {
   const [cocktail, setCocktail] = useState(null);
@@ -39,7 +38,7 @@ function RandomCocktail() {
     <div className="random-cocktail-container">
       <h1 className="random-cocktail-title">Random Cocktail</h1>
       {cocktail && (
-        <div className="cocktail-card">
+        <div className="cocktail-display">
           <Cocktail 
             cocktail={cocktail} 
             addToFavorites={addToFavorites}

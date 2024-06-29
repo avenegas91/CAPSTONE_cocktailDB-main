@@ -1,50 +1,40 @@
 .cocktail-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  background-color: #ffffff;
   padding: 20px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  text-align: center;
   margin-bottom: 20px;
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center; /* Center all text inside the card */
-}
-
-.cocktail-title {
-  font-size: 1.5em;
-  margin-bottom: 10px;
 }
 
 .cocktail-image {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.cocktail-subtitle {
-  font-size: 1.2em;
-  margin: 10px 0;
+.cocktail-details {
+  text-align: center;
 }
 
-.cocktail-ingredients {
+.cocktail-details h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.cocktail-details ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  text-align: center; /* Center the ingredients list */
 }
 
-.cocktail-ingredients li {
-  text-align: left;
+.cocktail-details li {
   margin-bottom: 5px;
+  color: #666666;
 }
 
-.cocktail-instructions {
-  text-align: left;
-  margin: 10px 0;
-}
-
-.cocktail-button {
+.favorites-button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -52,8 +42,14 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 1em;
+  margin-top: 20px;
 }
 
-.cocktail-button:hover {
+.favorites-button:hover {
   background-color: #0056b3;
+}
+
+.favorites-button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
