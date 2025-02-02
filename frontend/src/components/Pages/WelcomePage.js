@@ -13,7 +13,7 @@ function WelcomePage() {
   return (
     <div className="welcome-container">
       <div className="welcome-card">
-        <h1 className="app-title">Barkeeps</h1>
+        <h1 className="app-title">BARKEEPS</h1>
         <p className="app-description">Discover and save your favorite cocktails. Create an account or log in to get started!</p>
         {showLogin ? (
           <Login toggleForm={toggleForm} />
