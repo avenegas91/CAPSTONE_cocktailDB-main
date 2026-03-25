@@ -23,7 +23,7 @@ function Register({ toggleForm }) {
       return;
     }
     try {
-      const response = await axios.post('http://${process.env.REACT_APP_API_URL}/auth/register', { username, password, birthdate });
+      const response = await axios.post('https://${process.env.REACT_APP_API_URL}/auth/register', { username, password, birthdate });
       login(response.data.token, username);
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error === 'Username already exists') {
