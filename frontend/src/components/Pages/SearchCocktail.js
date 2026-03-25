@@ -49,7 +49,7 @@ function SearchCocktail() {
   const addToFavorites = async () => {
     const token = localStorage.getItem('token');
     try {
-      await axios.post('http://localhost:3000/favorites', { cocktailId: cocktail.idDrink }, {
+      await axios.post('http://${process.env.REACT_APP_API_URL}/favorites', { cocktailId: cocktail.idDrink }, {
         headers: { Authorization: token }
       });
       alert('Added to favorites');

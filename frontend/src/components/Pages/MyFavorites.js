@@ -15,7 +15,7 @@ function MyFavorites() {
     const fetchFavorites = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:3000/favorites', {
+        const response = await axios.get('http://${process.env.REACT_APP_API_URL}/favorites', {
           headers: { Authorization: token }
         });
         setFavorites(response.data);
@@ -50,7 +50,7 @@ function MyFavorites() {
   const removeFromFavorites = async (cocktailId) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:3000/favorites/${cocktailId}`, {
+      await axios.delete(`http://${process.env.REACT_APP_API_URL}/favorites/${cocktailId}`, {
         headers: { Authorization: token }
       });
       setFavorites(favorites.filter(fav => fav.cocktail_id !== cocktailId));
