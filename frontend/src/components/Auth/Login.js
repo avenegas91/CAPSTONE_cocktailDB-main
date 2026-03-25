@@ -11,7 +11,7 @@ function Login({ toggleForm }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://${process.env.REACT_APP_API_URL}/auth/login', { username, password });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, { username, password });
       login(response.data.token, username);
     } catch (error) {
       alert('Login failed');
